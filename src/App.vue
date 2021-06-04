@@ -1,12 +1,29 @@
+<!--
+ * @LastEditors:  
+ * @LastEditTime: 2021-06-04 15:15:34
+ * @FilePath: /sy_website/src/App.vue
+-->
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <!-- <nav-bar></nav-bar> -->
+  <main-tab-bar></main-tab-bar>
   <router-view />
 </template>
+<script lang="ts">
+import { defineComponent } from "vue";
+// import NavBar from "@/components/NavBar/NavBar.vue";
+import MainTabBar from "./components/Navagation/MainTabBar.vue";
+export default defineComponent({
+  components: { /* NavBar,  */ MainTabBar },
+  setup() {
+    return {};
+  },
+});
+</script>
 
 <style lang="scss">
+body {
+  margin: 0px;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,5 +43,13 @@
       color: #42b983;
     }
   }
+}
+li {
+  // display: inline-block;
+  width: 100px;
+  text-align: center;
+}
+.md-dark {
+  background: chocolate;
 }
 </style>

@@ -1,6 +1,17 @@
+<!--
+ * @LastEditors:  
+ * @LastEditTime: 2021-06-04 15:59:44
+ * @FilePath: /sy_website/src/views/Home.vue
+-->
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
   </div>
 </template>

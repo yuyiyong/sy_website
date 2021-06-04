@@ -1,0 +1,21 @@
+$md-toolbar-height: 64px;
+$md-toolbar-height-portrait: 56px;
+$md-toolbar-height-landscape: 48px;
+$md-toolbar-height-dense: 48px;
+$primary-color: #006bc9;
+$bw:100vw/750;
+.fontB{
+    font-weight: 300;
+    letter-spacing: normal;
+    color:#555;
+}
+
+.ccc {
+    @mixin test {
+        
+    }
+}
+
+@mixin bg($value: red) {
+    background-color: $value;
+}

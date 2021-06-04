@@ -1,11 +1,21 @@
+/*
+ * @LastEditors:
+ * @LastEditTime: 2021-06-04 16:42:26
+ * @FilePath: /sy_website/src/router/index.ts
+ */
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
-
+import Product from "../views/Product.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/product",
+    name: "Product",
+    component: Product,
   },
   {
     path: "/about",
