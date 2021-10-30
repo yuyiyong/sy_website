@@ -1,13 +1,13 @@
-import MdRipple from 'components/MdRipple/MdRipple'
+import MdRipple from "components/MdRipple/MdRipple";
 
 export default {
   components: {
-    MdRipple
+    MdRipple,
   },
   props: {
     mdRipple: {
       type: Boolean,
-      default: true
-    }
-  }
-}
+      default: true,
+    },
+  },
+};

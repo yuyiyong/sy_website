@@ -1,5 +1,3 @@
-import './layout.scss'
+import "./layout.scss";
 
-export default Vue => {
-
-}
+export default (Vue) => {};

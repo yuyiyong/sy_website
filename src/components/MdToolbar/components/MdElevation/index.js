@@ -1,4 +1,3 @@
-import './elevation.scss'
+import "./elevation.scss";
 
-export default Vue => {
-}
+export default (Vue) => {};

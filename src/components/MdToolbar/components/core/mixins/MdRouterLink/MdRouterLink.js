@@ -6,6 +6,6 @@ export default {
     activeClass: String,
     exact: Boolean,
     event: [String, Array],
-    exactActiveClass: String
-  }
-}
+    exactActiveClass: String,
+  },
+};

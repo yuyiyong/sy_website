@@ -1,5 +1,5 @@
 export default {
   methods: {
-    isAssetIcon: icon => /\w+[/\\.]\w+/.test(icon)
-  }
-}
+    isAssetIcon: (icon) => /\w+[/\\.]\w+/.test(icon),
+  },
+};

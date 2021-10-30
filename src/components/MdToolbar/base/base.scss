@@ -1,5 +1,5 @@
 @import "../components/MdAnimation/variables";
-
+@import "@/global/globalStyle";
 /**
  * Structure - The main styles for html and body tags
  */
@@ -26,7 +26,9 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: Roboto, 'Noto Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: $primary-fFamily;;
+  // font-family: Roboto, 'Noto Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
   @extend .md-body-1;
 }
 

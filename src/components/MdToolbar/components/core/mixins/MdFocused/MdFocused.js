@@ -1,87 +1,91 @@
-import MdReactive from 'core/utils/MdReactive'
+import MdReactive from "core/utils/MdReactive";
 
-let hasEvents = false
-let eventTarget = null
-let supportsPassiveEvent = false
+let hasEvents = false;
+let eventTarget = null;
+let supportsPassiveEvent = false;
 let MdFocused = new MdReactive({
-  currentElement: null
-})
+  currentElement: null,
+});
 
-function checkPassiveEventSupport () {
+function checkPassiveEventSupport() {
   try {
-    var opts = Object.defineProperty({}, 'passive', {
-      get () {
-        supportsPassiveEvent = { passive: true }
-      }
-    })
-    window.addEventListener('ghost', null, opts)
+    var opts = Object.defineProperty({}, "passive", {
+      get() {
+        supportsPassiveEvent = { passive: true };
+      },
+    });
+    window.addEventListener("ghost", null, opts);
   } catch (e) {}
 }
 
-function setKeyboardInteraction ({ keyCode, target }) {
-  MdFocused.currentElement = target
+function setKeyboardInteraction({ keyCode, target }) {
+  MdFocused.currentElement = target;
 }
 
-function setMouseAndTouchInteraction (event) {
-  MdFocused.currentElement = null
+function setMouseAndTouchInteraction(event) {
+  MdFocused.currentElement = null;
 }
 
-function createKeyboardEvents () {
-  eventTarget.addEventListener('keyup', setKeyboardInteraction)
+function createKeyboardEvents() {
+  eventTarget.addEventListener("keyup", setKeyboardInteraction);
 }
 
-function createPointerEvents () {
-  eventTarget.addEventListener('pointerup', setMouseAndTouchInteraction)
+function createPointerEvents() {
+  eventTarget.addEventListener("pointerup", setMouseAndTouchInteraction);
 }
 
-function createMSPointerEvents () {
-  eventTarget.addEventListener('MSPointerUp', setMouseAndTouchInteraction)
+function createMSPointerEvents() {
+  eventTarget.addEventListener("MSPointerUp", setMouseAndTouchInteraction);
 }
 
-function createMouseAndTouchEvents () {
-  eventTarget.addEventListener('mouseup', setMouseAndTouchInteraction)
+function createMouseAndTouchEvents() {
+  eventTarget.addEventListener("mouseup", setMouseAndTouchInteraction);
 
-  if ('ontouchend' in window) {
-    eventTarget.addEventListener('touchend', setMouseAndTouchInteraction, supportsPassiveEvent)
+  if ("ontouchend" in window) {
+    eventTarget.addEventListener(
+      "touchend",
+      setMouseAndTouchInteraction,
+      supportsPassiveEvent
+    );
   }
 }
 
-function bindEvents () {
+function bindEvents() {
   if (window.PointerEvent) {
-    createPointerEvents()
+    createPointerEvents();
   } else if (window.MSPointerEvent) {
-    createMSPointerEvents()
+    createMSPointerEvents();
   } else {
-    createMouseAndTouchEvents()
+    createMouseAndTouchEvents();
   }
 
-  createKeyboardEvents()
+  createKeyboardEvents();
 }
 
-function createEvents () {
+function createEvents() {
   if (!hasEvents) {
-    eventTarget = document.body
-    checkPassiveEventSupport()
-    bindEvents()
-    hasEvents = true
+    eventTarget = document.body;
+    checkPassiveEventSupport();
+    bindEvents();
+    hasEvents = true;
   }
 }
 
 export default {
   data: () => ({
-    mdHasFocus: false
+    mdHasFocus: false,
   }),
   computed: {
-    focusedElement () {
-      return MdFocused.currentElement
-    }
+    focusedElement() {
+      return MdFocused.currentElement;
+    },
   },
   watch: {
-    focusedElement (el) {
-      this.mdHasFocus = el === this.$el
-    }
+    focusedElement(el) {
+      this.mdHasFocus = el === this.$el;
+    },
   },
-  mounted () {
-    createEvents()
-  }
-}
+  mounted() {
+    createEvents();
+  },
+};

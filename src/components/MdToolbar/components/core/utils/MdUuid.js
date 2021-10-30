@@ -1,5 +1,5 @@
 const MdUuid = () => {
-  return Math.random().toString(36).slice(4)
-}
+  return Math.random().toString(36).slice(4);
+};
 
-export default MdUuid
+export default MdUuid;

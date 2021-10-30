@@ -1,6 +1,1 @@
-export default [
-  'click',
-  'dblclick',
-  'mousedown',
-  'mouseup'
-]
+export default ["click", "dblclick", "mousedown", "mouseup"];

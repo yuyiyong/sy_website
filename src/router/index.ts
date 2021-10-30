@@ -1,10 +1,10 @@
 /*
  * @LastEditors:
- * @LastEditTime: 2021-06-04 16:42:26
+ * @LastEditTime: 2021-06-09 11:07:33
  * @FilePath: /sy_website/src/router/index.ts
  */
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
+import { createRouter, RouteRecordRaw, createWebHashHistory } from "vue-router";
+import Home from "../views/Home01.vue";
 import Product from "../views/Product.vue";
 const routes: Array<RouteRecordRaw> = [
   {
@@ -29,7 +29,8 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(process.env.BASE_URL),
+  // history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 
