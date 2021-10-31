@@ -2,26 +2,25 @@ $md-toolbar-height: 64px;
 $md-toolbar-height-portrait: 56px;
 $md-toolbar-height-landscape: 48px;
 $md-toolbar-height-dense: 48px;
-$primary-color: #000;
-$primary-color2: #fe7a2e;
-$max-width:1140px;
+$primary-color: #0177b4;
+$primary-color2: #78bd39;
+// $primary-color2: #fe7a2e;
+$max-width: 1140px;
 // $primary-color: #006bc9;
-$bw:100vw/750;
-$primary-fFamily:"Roboto", "Helvetica", "Arial", sans-serif;;
-.fontB{
-    font-weight: 300;
-    letter-spacing: 0.00735em;
-    color:#555;
-    font-family: $primary-fFamily;
+$bw: 100vw/750;
+$primary-fFamily: "Roboto", "Helvetica", "Arial", sans-serif;
+.fontB {
+  font-weight: 300;
+  letter-spacing: 0.00735em;
+  color: #555;
+  font-family: $primary-fFamily;
 }
 
-
 .ccc {
-    @mixin test {
-        
-    }
+  @mixin test {
+  }
 }
 
 @mixin bg($value: red) {
-    background-color: $value;
+  background-color: $value;
 }

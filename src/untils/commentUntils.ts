@@ -1,6 +1,6 @@
 /*
- * @LastEditors:
- * @LastEditTime: 2021-06-25 17:27:04
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-10-30 11:10:06
  * @FilePath: /sy_website/src/untils/commentUntils.ts
  */
 class commentUntils {

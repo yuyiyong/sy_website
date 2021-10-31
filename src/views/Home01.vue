@@ -1,6 +1,6 @@
 <!--
- * @LastEditors:  
- * @LastEditTime: 2021-06-28 11:16:36
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-10-30 17:53:18
  * @FilePath: /sy_website/src/views/Home01.vue
 -->
 <template>
@@ -49,7 +49,6 @@
   <!-- End Header -->
 
   <banner-2 :bannerList="bannerList"></banner-2>
-
   <main id="main">
     <!-- ======= About Section ======= -->
     <!-- <section id="about" class="about">
@@ -85,35 +84,33 @@
         <div class="row">
           <div class="col-lg-3 col-md-3 col-6 border1">
             <div class="big_num">
-              <span
-                ><num-animation :time="numTime" num="200"></num-animation
-                >+</span
-              >万人
+              <span>
+                <num-animation :time="numTime" num="200"></num-animation>+
+              </span>万人
             </div>
             <div>全球服务用户数量</div>
           </div>
           <div class="col-lg-3 col-md-3 col-6 border1">
             <div class="big_num">
-              <span
-                ><num-animation :time="numTime" num="2000"></num-animation
-                >+</span
-              >万
+              <span>
+                <num-animation :time="numTime" num="2000"></num-animation>+
+              </span>万
             </div>
             <div>日均交易量</div>
           </div>
           <div class="col-lg-3 col-md-3 col-6 border1">
             <div class="big_num">
-              <span
-                ><num-animation :time="numTime" num="10"></num-animation>+</span
-              >亿
+              <span>
+                <num-animation :time="numTime" num="10"></num-animation>+
+              </span>亿
             </div>
             <div>资管额</div>
           </div>
           <div class="col-lg-3 col-md-3 col-6 border2">
             <div class="big_num">
-              <span
-                ><num-animation :time="numTime" num="10"></num-animation>+</span
-              >年
+              <span>
+                <num-animation :time="numTime" num="10"></num-animation>+
+              </span>年
             </div>
             <div>系统安全运行达</div>
           </div>
@@ -129,90 +126,58 @@
         </div>
         <!-- <img src="../assets/img/zt.png" class="img-fluid" alt="" /> -->
         <div class="row">
-          <div
-            class="
+          <div class="
               col-lg-2 col-md-4 col-6
               d-flex
               align-items-center
               justify-content-center
-            "
-          >
+            ">
             <img src="" class="img-fluid" alt="" />
           </div>
 
-          <div
-            class="
+          <div class="
               col-lg-2 col-md-4 col-6
               d-flex
               align-items-center
               justify-content-center
-            "
-          >
-            <img
-              src="assets/img/clients/client-2.png"
-              class="img-fluid"
-              alt=""
-            />
+            ">
+            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="" />
           </div>
 
-          <div
-            class="
+          <div class="
               col-lg-2 col-md-4 col-6
               d-flex
               align-items-center
               justify-content-center
-            "
-          >
-            <img
-              src="assets/img/clients/client-3.png"
-              class="img-fluid"
-              alt=""
-            />
+            ">
+            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="" />
           </div>
 
-          <div
-            class="
+          <div class="
               col-lg-2 col-md-4 col-6
               d-flex
               align-items-center
               justify-content-center
-            "
-          >
-            <img
-              src="assets/img/clients/client-4.png"
-              class="img-fluid"
-              alt=""
-            />
+            ">
+            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="" />
           </div>
 
-          <div
-            class="
+          <div class="
               col-lg-2 col-md-4 col-6
               d-flex
               align-items-center
               justify-content-center
-            "
-          >
-            <img
-              src="assets/img/clients/client-5.png"
-              class="img-fluid"
-              alt=""
-            />
+            ">
+            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="" />
           </div>
 
-          <div
-            class="
+          <div class="
               col-lg-2 col-md-4 col-6
               d-flex
               align-items-center
               justify-content-center
-            "
-          >
-            <img
-              src="assets/img/clients/client-6.png"
-              class="img-fluid"
-              alt=""
-            />
+            ">
+            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="" />
           </div>
         </div>
       </div>
@@ -299,13 +264,7 @@
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
-              <li
-                data-filter="*"
-                :class="index === currentCate ? 'filter-active' : ''"
-                v-for="(item, index) in productList"
-                :key="index"
-                @mouseover="cateHandle(index)"
-              >
+              <li data-filter="*" :class="index === currentCate ? 'filter-active' : ''" v-for="(item, index) in productList" :key="index" @mouseover="cateHandle(index)">
                 {{ item.name }}
               </li>
             </ul>
@@ -313,12 +272,7 @@
         </div>
 
         <div class="row portfolio-container minHeight_w">
-          <div
-            class="col-lg-4 col-md-6 d-flex align-items-stretch"
-            data-aos="fade-up"
-            v-for="(value, key) in productList[currentCate].list"
-            :key="key"
-          >
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" v-for="(value, key) in productList[currentCate].list" :key="key">
             <rise :delayTime="key * 130" :visiable="visiable">
               <article class="entry">
                 <div class="entry-img" @click="detailHandle(key)">
@@ -347,14 +301,9 @@
               </div> -->
 
                 <div class="entry-content">
-                  <div
-                    class="entry_content_limit_row"
-                    v-html="value.intruduce"
-                  ></div>
+                  <div class="entry_content_limit_row" v-html="value.intruduce"></div>
                   <div class="read-more">
-                    <a href="javascript:;" @click="detailHandle(key)"
-                      >了解更多</a
-                    >
+                    <a href="javascript:;" @click="detailHandle(key)">了解更多</a>
                   </div>
                 </div>
               </article>
@@ -770,7 +719,7 @@ import NumAnimation from "@/components/animation/NumAnimation.vue";
 import Rise from "@/components/animation/Rise.vue";
 export default {
   components: { Banner2, StructureTec, NumAnimation, Rise },
-  setup() {
+  setup () {
     const store = useStore();
     const router = useRouter();
     onMounted(() => {
@@ -784,6 +733,7 @@ export default {
       data.visiable = true;
     };
     const detailHandle = (index) => {
+      // selectLang
       store.commit("setCategoryIndex", data.currentCate);
       store.commit("setProductIndex", index);
       router.push("/product");
@@ -793,34 +743,73 @@ export default {
       console.log("index===>", index);
       return data.visiable;
     };
+
+    const t = computed(() => store.state.productStore.t);
+
     let data = reactive({
       visiable: true,
       numTime: 3800,
       currentCate: 0,
-      bannerList: [
-        {
-          url: require("@/assets/img/slide/slide-1.jpg"),
-          title: "<span>杭州三猿科技有限公司</span>",
-          description: "<h3>通过AI、大数据等技术做金融科技行业的领先者</h3>",
-        },
-        {
-          url: require("@/assets/img/slide/slide-2.jpg"),
-          title: "优秀的团队",
-          description:
-            "多年的行业经验，深厚的技术积累，大数据分析师，AI技术，实现优秀的金融策略、数学模型、金融分析、金融模型",
-        },
-        {
-          url: require("@/assets/img/slide/slide-3.jpg"),
-          title: "强大的抗风险能力",
-          description:
-            "通过风控系统、各资产包的搭配，抵抗金融的大跌、急跌行情，在行情低迷时期也能获取收益",
-        },
-      ],
+      // bannerList: [
+      //   {
+      //     url: require("@/assets/img/slide/slide-1.jpg"),
+      //     // title: "<span>杭州三猿科技有限公司</span>",
+      //     title: t.b_title1,
+      //     // * description: "<h3>通过AI、大数据等技术做金融科技行业的领先者</h3>",
+      //     description: "<h3>通过AI、大数据等技术做金融科技行业的领先者</h3>",
+      //   },
+      //   {
+      //     url: require("@/assets/img/slide/slide-2.jpg"),
+      //     // title: "优秀的团队",
+      //     title: t.b_title2, //* "优秀的团队",
+      //     description:
+      //       //  * "多年的行业经验，深厚的技术积累，大数据分析师，AI技术，实现优秀的金融策略、数学模型、金融分析、金融模型",
+      //       "多年的行业经验，深厚的技术积累，大数据分析师，AI技术，实现优秀的金融策略、数学模型、金融分析、金融模型",
+      //   },
+      //   {
+      //     url: require("@/assets/img/slide/slide-3.jpg"),
+      //     // title: "强大的抗风险能力",
+      //     title: t.b_title3, //* "强大的抗风险能力",
+      //     description:
+      //       //  * "通过风控系统、各资产包的搭配，抵抗金融的大跌、急跌行情，在行情低迷时期也能获取收益",
+      //       "通过风控系统、各资产包的搭配，抵抗金融的大跌、急跌行情，在行情低迷时期也能获取收益",
+      //   },
+      // ],
     });
     return {
       showItem,
       detailHandle,
       cateHandle,
+
+      bannerList: computed(() => {
+        const t = store.state.productStore.t;
+        return [
+          {
+            url: require("@/assets/img/slide/slide-1.jpg"),
+            // * title: "<span>杭州三猿科技有限公司</span>",
+            title: t.b_title1,
+            // * description: "<h3>通过AI、大数据等技术做金融科技行业的领先者</h3>",
+            description: "<h3>通过AI、大数据等技术做金融科技行业的领先者</h3>",
+          },
+          {
+            url: require("@/assets/img/slide/slide-2.jpg"),
+            //  * title: "优秀的团队",
+            title: t.b_title2, //* "优秀的团队",
+            description:
+              //  * "多年的行业经验，深厚的技术积累，大数据分析师，AI技术，实现优秀的金融策略、数学模型、金融分析、金融模型",
+              "多年的行业经验，深厚的技术积累，大数据分析师，AI技术，实现优秀的金融策略、数学模型、金融分析、金融模型",
+          },
+          {
+            url: require("@/assets/img/slide/slide-3.jpg"),
+            //  * title: "强大的抗风险能力",
+            title: t.b_title3, //* "强大的抗风险能力",
+            description:
+              //  * "通过风控系统、各资产包的搭配，抵抗金融的大跌、急跌行情，在行情低迷时期也能获取收益",
+              "通过风控系统、各资产包的搭配，抵抗金融的大跌、急跌行情，在行情低迷时期也能获取收益",
+          },
+        ];
+      }),
+      t: t,
       productList: computed(() => store.state.productStore.productList),
       ...toRefs(data),
     };

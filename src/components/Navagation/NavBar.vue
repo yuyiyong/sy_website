@@ -1,15 +1,16 @@
 <!--
- * @LastEditors:  
- * @LastEditTime: 2021-06-30 15:14:10
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-10-30 15:54:31
  * @FilePath: /sy_website/src/components/Navagation/NavBar.vue
 -->
 <template>
   <nav>
+    <div class="bg"></div>
     <div class="nav_max_wrap">
       <div class="left_wrap">
         <div class="logo">
           <slot name="logo-icon"><img src="../../assets/logo.png" /></slot>
-          <slot name="logo-title">三猿科技</slot>
+          <!-- <slot name="logo-title">三猿科技</slot> -->
         </div>
         <ul class="nav-menu">
           <slot></slot>
@@ -21,7 +22,17 @@
       <i class="el-input__icon el-icon-search"></i>
     </div> -->
 
-      <div class="right_wrap">联系我们:400 0677 087</div>
+      <div class="right_wrap">
+        <div class="lang_wrap">
+          <div>{{ lang }}</div>
+          <ul>
+            <li v-for="(value, key, index) in LANG_ARR" :key="index" @click="selectLang(key)">
+              {{ value }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- <div class="right_wrap">联系我们:400 0677 087</div> -->
       <div class="burger" @click="handleBurger()">
         <div class="top-line"></div>
         <div class="middle-line"></div>
@@ -32,22 +43,55 @@
 </template>
 
 <script>
+import CONSTS, { LANG_KEY } from "@/constant/CONSTS";
+import { reactive, toRefs } from "@vue/reactivity";
+import { useStore } from "vuex";
 export default {
   name: "NavBar",
-  methods: {
-    handleBurger() {
-      const burger = document.querySelector(".burger");
-      const navMenu = document.querySelector(".nav-menu");
-      burger.addEventListener("click", function () {
-        burger.classList.toggle("active");
-        navMenu.classList.toggle("open");
-      });
-    },
+  setup (props) {
+    const store = useStore();
+    let data = reactive({
+      lang: CONSTS.LANG_STRING[CONSTS.DEFAULT_LANG],
+      LANG_ARR: CONSTS.LANG_STRING,
+    });
+
+    return {
+      selectLang: (key) => {
+        data.lang = CONSTS.LANG_STRING[key];
+        // store.dispatch({
+        //   type: "aa",
+        //   langKey: key,
+        // });
+        // store.commit({ type: "selectLang", langKey: key });
+        store.dispatch({ type: "selectLang", langKey: key });
+      },
+      handleBurger: () => {
+        const burger = document.querySelector(".burger");
+        const navMenu = document.querySelector(".nav-menu");
+        burger.addEventListener("click", function () {
+          burger.classList.toggle("active");
+          navMenu.classList.toggle("open");
+        });
+      },
+      ...toRefs(data),
+    };
   },
 };
 </script>
 <style scoped lang="scss">
 @import "@/global/globalStyle";
+.lang_wrap {
+  position: relative;
+  ul {
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    background: green;
+    bottom: 0;
+    transform: translateY(calc(100% + 21px));
+  }
+}
 .right_wrap {
   width: 200px;
   color: #e4e4e4;
@@ -58,8 +102,27 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  background-color: $primary-color;
-  /* background-color: rgba(65, 81, 101, 0.9); */
+  // background: #fff;
+  background-color: #28a7463f;
+  // background: linear-gradient(
+  //   darken($primary-color, 100%),
+  //   lighten($primary-color, 20%)
+  // );
+
+  position: relative;
+  .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #686f74e6;
+    // background: linear-gradient(
+    //   darken($primary-color, 100%),
+    //   lighten($primary-color, 20%)
+    // );
+    opacity: 0.4;
+    z-index: -1;
+  }
+  // background-color: rgba(65, 81, 101, 0.9);
 }
 .nav_max_wrap {
   width: 100%;
@@ -92,8 +155,9 @@ nav {
 }
 .logo img {
   display: block;
-  width: 30px;
-  height: 30px;
+  width: auto;
+  // height: 30px;
+  height: 63px;
   border-radius: 5px;
   /* flex: 1; */
   vertical-align: center;

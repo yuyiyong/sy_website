@@ -1,6 +1,6 @@
 <!--
- * @LastEditors:  
- * @LastEditTime: 2021-06-29 17:03:55
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-10-30 13:23:58
  * @FilePath: /sy_website/src/App.vue
 -->
 <template>
@@ -12,8 +12,7 @@
   <footer id="footer">
     <div class="container addcontainer">
       <div class="copyright">
-        &copy; Copyright 杭州<strong><span>三猿科技</span></strong
-        >有限公司
+        &copy; Copyright 杭州<strong><span>三猿科技</span></strong>有限公司
       </div>
       <div>投资有风险，入市需谨慎</div>
       <!-- <div class="credits"> -->
@@ -78,7 +77,7 @@ body {
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 .contain_wrap {
-  margin-top: 70px;
+  // margin-top: 70px;
 }
 .addcontainer {
   text-align: center;

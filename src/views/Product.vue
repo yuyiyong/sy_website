@@ -1,70 +1,45 @@
 <!--
- * @LastEditors:  
- * @LastEditTime: 2021-06-30 18:11:31
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-10-30 17:52:36
  * @FilePath: /sy_website/src/views/Product.vue
 -->
 <template>
   <div class="global_wrap">
     <div class="nav_wrap" @mouseenter="handleIn">
       <ul class="nav">
-        <li
-          @mouseover="selectCategory(index)"
-          v-for="(item, index) in productList"
-          :key="index"
-          :class="{
+        <li @mouseover="selectCategory(index)" v-for="(item, index) in productList" :key="index" :class="{
             cateActive: index === cIndex,
             moveActive: index === categoryIndex,
-          }"
-        >
+          }">
           {{ item.name }}
         </li>
       </ul>
       <div>
         <ul class="nav_btn">
           <li v-for="(item, index) in categoryList" :key="index">
-            <cicle-btn
-              @click="handleClick(index)"
-              :active="
+            <cicle-btn @click="handleClick(index)" :active="
                 categoryIndex === cIndex ? productIndex === index : false
-              "
-            >
+              ">
               {{ item.name }}
             </cicle-btn>
-            <span class="ver_divider" v-if="index !== categoryList.length - 1"
-              >/</span
-            >
+            <span class="ver_divider" v-if="index !== categoryList.length - 1">/</span>
           </li>
         </ul>
       </div>
       <div @mouseout="handleOut"></div>
     </div>
-    <!-- <pre>
-      {{ productList }}
-  </pre> -->
+
     <ul class="wrap_detail">
-      <div
-        class="package_wrap"
-        v-for="(item, index) in productList"
-        :key="index"
-      >
-        <section
-          class="breadcrumbs breadcrumbs_add"
-          id="breadcrumbs"
-          :style="`background-image: url(${
+      <div class="package_wrap" v-for="(item, index) in productList" :key="index">
+        <section class="breadcrumbs breadcrumbs_add" id="breadcrumbs" :style="`background-image: url(${
             item.style && item.style.url
-          }); background-color:${item.style && item.style.background}`"
-        >
+          }); background-color:${item.style && item.style.background}`">
           <div class="content_wrap">
             <h2 class="content_tit">{{ item.name }}</h2>
             <div class="content_con" v-html="item.content"></div>
           </div>
         </section>
-        <li
-          :id="'product' + index + '_' + key"
-          class="item_li_wrap"
-          v-for="(val, key) in item.list"
-          :key="key"
-        >
+        <li :id="'product' + index + '_' + key" class="item_li_wrap" v-for="(val, key) in item.list" :key="key">
           <article class="entry entry-single entry_addd">
             <div class="entry-img">
               <img :src="val.url" alt="" class="img-fluid img-width" />
@@ -79,11 +54,7 @@
             <div class="steps_wrap" v-if="val.steps">
               <h3>{{ val.steps.title }}</h3>
               <div class="steps_block_Wra">
-                <div
-                  v-for="(step, stepKey) in val.steps.list"
-                  :key="stepKey"
-                  :class="{ step_b_2: stepKey !== val.steps.list.length - 1 }"
-                >
+                <div v-for="(step, stepKey) in val.steps.list" :key="stepKey" :class="{ step_b_2: stepKey !== val.steps.list.length - 1 }">
                   <div class="step_block_icon">
                     <img :src="step.icon" alt="" />
                   </div>
@@ -94,18 +65,11 @@
               </div>
             </div>
             <div class="btn_wrap">
-              <a
-                v-for="(item1, index1) in val.button"
-                :key="index1"
-                :href="item1.url ? item.url : 'javascript:void(0);'"
-                :target="item1.url ? 'view_frame' : ''"
-                class="
+              <a v-for="(item1, index1) in val.button" :key="index1" :href="item1.url ? item.url : 'javascript:void(0);'" :target="item1.url ? 'view_frame' : ''" class="
                   btn-get-started
                   animate__animated animate__fadeInUp
                   scrollto
-                "
-                >{{ item1.text }}</a
-              >
+                ">{{ item1.text }}</a>
             </div>
             <!-- <div class="entry-meta">
             <ul>
@@ -166,7 +130,7 @@ import CicleBtn from "@/components/button/CicleBtn.vue";
 import { productCate } from "@/store/storeItf/product.itf";
 import { computed, defineComponent, onMounted, ref } from "vue";
 import { useStore } from "vuex";
-import commentUntils from "@/untils/commentUntils";
+import commentUntils from "../untils/commentUntils";
 export default defineComponent({
   components: { CicleBtn },
   setup() {

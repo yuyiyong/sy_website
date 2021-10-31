@@ -1,7 +1,7 @@
 /* eslint-disable vue/no-deprecated-slot-attribute */
 <!--
- * @LastEditors:  
- * @LastEditTime: 2021-06-30 16:18:10
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-10-30 17:59:11
  * @FilePath: /sy_website/src/components/Navagation/MainTabBar.vue
 -->
 <template>
@@ -11,27 +11,25 @@
       <template v-slot:logo-title> 三猿科技 </template>
       <tab-bar-item path="/" @mouseenter="dispProduct">
         <template v-slot:li-title>
-          <span>首页</span>
+          <!-- 首页 -->
+          <span>{{ t.home }}</span>
         </template>
       </tab-bar-item>
       <tab-bar-item path="/product" @mouseenter="showProduct">
         <template v-slot:li-title>
-          <span>产品</span>
+          <span>{{ t.product }}</span>
+          <!-- <span>产品</span> -->
         </template>
       </tab-bar-item>
       <tab-bar-item path="/about" @mouseenter="dispProduct">
         <template v-slot:li-title>
-          <span>关于我们</span>
+          <!-- <span>关于我们</span> -->
+          <span>{{ t.aboutus }}</span>
         </template>
       </tab-bar-item>
     </nav-bar>
     <!-- <slider :visiable="visiable" :delayTime="0"> -->
-    <div
-      class="secondNav"
-      :class="{ show: visiable, hide: !visiable }"
-      @mouseleave="dispProduct"
-    >
-      <!-- <pre>{{ constarr }}</pre> -->
+    <div class="secondNav" :class="{ show: visiable, hide: !visiable }" @mouseleave="dispProduct">
       <ul class="global_ul">
         <!-- <li></li> -->
         <li>
@@ -41,11 +39,7 @@
                 item.name
               }}</a>
               <ul class="proType">
-                <li
-                  v-for="(val, key) in item.list"
-                  :key="key"
-                  @click="handleProduct(index, key)"
-                >
+                <li v-for="(val, key) in item.list" :key="key" @click="handleProduct(index, key)">
                   <a href="javascript:;">{{ val.name }}</a>
                 </li>
               </ul>
@@ -64,33 +58,70 @@ import commentUntils from "@/untils/commentUntils";
 import NavBar from "./NavBar";
 import TabBarItem from "./TabBarItem";
 import Slider from "../animation/Slider.vue";
+import { reactive, toRefs } from "@vue/reactivity";
+import { useStore } from "vuex";
+import { computed } from "@vue/runtime-core";
+import { useRouter } from "vue-router";
 
 export default {
   name: "MainTabBar",
   components: { TabBarItem, /* TabBar ,*/ NavBar },
-  data() {
-    return {
+  setup (props) {
+    const data = reactive({
       visiable: false,
-      constarr: this.$store.state.productStore.productList,
+    });
+    const store = useStore();
+    const router = useRouter();
+    const t = computed(() => store.state.productStore.t);
+    const constarr = computed(() => store.state.productStore.productList);
+
+    return {
+      constarr,
+      t,
+      showProduct: () => {
+        console.log("1111111---");
+        console.log("nimamawoyun ");
+        data.visiable = true;
+      },
+      dispProduct: () => {
+        data.visiable = false;
+      },
+      handleProduct: (index, key) => {
+        console.log("index,key", index, key);
+        store.commit("setCategoryIndex", index);
+        store.commit("setProductIndex", key);
+        router.push("/product");
+        commentUntils.goAnchor(index, key);
+        // commentUntils.goAnchor(categoryIndex.value, index);
+      },
+      ...toRefs(data),
     };
   },
-  methods: {
-    showProduct() {
-      console.log("nimamawoyun ");
-      this.visiable = true;
-    },
-    dispProduct() {
-      this.visiable = false;
-    },
-    handleProduct(index, key) {
-      console.log("index,key", index, key);
-      this.$store.commit("setCategoryIndex", index);
-      this.$store.commit("setProductIndex", key);
-      this.$router.push("/product");
-      commentUntils.goAnchor(index, key);
-      // commentUntils.goAnchor(categoryIndex.value, index);
-    },
-  },
+
+  // data () {
+  //   return {
+  //     visiable: false,
+  //     constarr: this.$store.state.productStore.productList,
+  //     t: this.$store.state.productStore.t,
+  //   };
+  // },
+  // methods: {
+  //   showProduct () {
+  //     console.log("nimamawoyun ");
+  //     this.visiable = true;
+  //   },
+  //   dispProduct () {
+  //     this.visiable = false;
+  //   },
+  //   handleProduct (index, key) {
+  //     console.log("index,key", index, key);
+  //     this.$store.commit("setCategoryIndex", index);
+  //     this.$store.commit("setProductIndex", key);
+  //     this.$router.push("/product");
+  //     commentUntils.goAnchor(index, key);
+  //     // commentUntils.goAnchor(categoryIndex.value, index);
+  //   },
+  // },
 };
 </script>
 

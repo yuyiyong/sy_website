@@ -1,12 +1,19 @@
 /*
+ * @Author: your name
+ * @Date: 2021-10-30 15:59:13
+ * @LastEditTime: 2021-10-30 17:15:19
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-10-30 17:14:35
+ * @Description: In User Settings Edit
+ * @FilePath: /sy_website/src/constant/EnLg.ts
+ */
+/*
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-10-30 16:19:49
  * @FilePath: /sy_website/src/constant/CONSTS.ts
  */
 
 import { productCate } from "@/store/storeItf/product.itf";
 import blog1 from "../assets/img/blog-1.jpg";
-import blog2 from "../assets/img/blog-2.jpg";
 import blog3 from "../assets/img/blog-3.jpg";
 import blog4 from "../assets/img/blog-4.jpg";
 import blog5 from "../assets/img/blog-5.jpg";
@@ -16,19 +23,13 @@ import bt from "../assets/img/struct/bt.png";
 import wh from "../assets/img/struct/wh.png";
 import qh from "../assets/img/struct/qh.png";
 import qhzcb from "../assets/img/xnzcb.jpg";
-import xnzcb from "../assets/img/qhzcb.jpeg";
 import btb from "../assets/img/btb.jpg";
 import znz from "../assets/img/znz.jpg";
 import zcIcon from "../assets/img/prodIcon/zhuce.png";
 import zichan from "../assets/img/prodIcon/zichan.png";
 import download from "../assets/img/prodIcon/download.png";
 import yijian from "../assets/img/prodIcon/yijian.png";
-class CONSTS {
-  LANG_STRING = {
-    [LANG_KEY.EN]: "English",
-    [LANG_KEY.TW]: "繁体中文",
-  };
-  DEFAULT_LANG = LANG_KEY.TW;
+class EnLg {
   t = {
     home: "首页",
     product: "产品",
@@ -374,9 +375,5 @@ class CONSTS {
     },
   ];
 }
-export enum LANG_KEY {
-  EN = 1,
-  TW,
-}
 
-export default new CONSTS();
+export default new EnLg();
